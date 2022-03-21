@@ -1,5 +1,5 @@
 import profile from './profile'
 
-export default {
+export const reducers = {
     profile
 }

@@ -1,15 +1,19 @@
-import { Routes, Route} from 'react-router-dom';
-import { PublicRoutes} from '../route';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { PublicRoutes, RouteNames } from '../route';
 const AppRouter = () => {
     return (
-            <Routes>
-                {PublicRoutes.map(route =>
-                    <Route
-                        path={route.path}
-                        element={<route.element />}
-                        key={route.path}
-                    />)}
-            </Routes>     
+        <Routes>
+            {PublicRoutes.map(route =>
+                <Route
+                    path={route.path}
+                    element={<route.element />}
+                    key={route.path}
+                />)}
+            <Route
+                path="*"
+                element={<Navigate to="/" replace />}
+            />
+        </Routes>
     )
 }
 

@@ -9,14 +9,24 @@ const Navbar: FC = () => {
     return (
         <div className={style.navbar}>
             <button
+                onClick={() => router(RouteNames.MAIN)}
+                className={style.li}>
+                Главная
+            </button>
+            <button
                 onClick={() => router(RouteNames.PROFILE)}
                 className={style.li}>
                 Профиль
             </button>
             <button
-                onClick={() => router(RouteNames.LOGIN)}
+                onClick={() => router(RouteNames.LOGOUT)}
                 className={style.li}>
                 Регистрация
+            </button>
+            <button
+                onClick={() => router(RouteNames.LOGIN)}
+                className={style.li}>
+                войти
             </button>
         </div>
     )
