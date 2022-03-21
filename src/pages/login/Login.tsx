@@ -1,28 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Login.module.css'
 import { useNavigate } from 'react-router'
-import { RouteNames } from '../../route'
+import { useActions } from '../../hooks/useActions'
 export const Login = () => {
 
   const router = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const { login } = useActions()
   return (
     <div className={style.container}>
-      <label ><b>Email</b></label>
-      <input className={style.input} type="text" placeholder="Введите вашу почту" name="email" required />
-
+      <label ><b>Имя пользователя</b></label>
+      <input
+        className={style.input}
+        type="text"
+        value={username}
+        onChange={e => setUsername(String(e.target.value))}
+        placeholder="Введите имя пользователя"
+        name="username"
+      />
       <label><b>Пароль</b></label>
-      <input className={style.input} type="password" placeholder="Введите пароль" name="psw" required />
+      <input
+        className={style.input}
+        value={password}
+        onChange={e => setPassword(String(e.target.value))}
+        placeholder="Введите пароль"
+        name="password"
+        required
+      />
 
       <label><b>Повторить пароль</b></label>
-      <input className={style.input} type="password" placeholder="Повторите пароль" name="psw-repeat" required />
-      
-      <button
-        onClick={() => router(RouteNames.LOGOUT)}
-        className={style.button}
-        type="submit"
-      >
-        Регистрация
-      </button>
+      <input
+        className={style.input}
+        type="password"
+        placeholder="Повторите пароль"
+        name="psw-repeat"
+        required
+      />
+
+      <div className={style.form_button}>
+        <button
+          onClick={()=>
+            login(username, password)
+          }
+          className={style.button}
+          type="submit"
+        >
+          Войти
+        </button>
+        <button
+          onClick={() => router("../logout")}
+          className={style.button}
+          type="submit"
+        >
+          Регистрация
+        </button>
+      </div>
     </div>
   )
 }

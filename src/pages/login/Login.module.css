@@ -37,4 +37,7 @@
     margin-top: 40px;
 }
 
-
+.form_button{
+    display: flex;
+    justify-content: center;
+}
