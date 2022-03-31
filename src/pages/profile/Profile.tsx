@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTupedSelector'
+import Navbar from '../navbar/Navbar'
 
 export const Profile: FC = () => {
 
@@ -12,10 +13,10 @@ export const Profile: FC = () => {
 
   return (
     <div>
-      Profile
-      {profile[0].level}
-      {profile[0].discription}
-
+      <Navbar/>
+      <h1>Profile</h1>
+      <h2>{profile[0].level}</h2>
+      <h2>{profile[0].discription}</h2>
     </div>
   )
 }

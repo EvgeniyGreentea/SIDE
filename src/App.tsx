@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AppRouter from "./components/AppRouter";
 import { useActions } from "./hooks/useActions";
 import { IUser } from "./models/IUser";
+import Main from "./pages/main/Main";
 import Navbar from "./pages/navbar/Navbar";
 
 
@@ -15,7 +16,6 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Navbar/>
       <AppRouter/>
     </div>
   );

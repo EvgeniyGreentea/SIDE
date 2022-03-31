@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router'
 import { RouteNames } from '../../route'
 import { useTypedSelector } from '../../hooks/useTupedSelector'
 import { useActions } from '../../hooks/useActions'
+import { Link } from 'react-router-dom'
+
 
 const Navbar: FC = () => {
     const router = useNavigate()
